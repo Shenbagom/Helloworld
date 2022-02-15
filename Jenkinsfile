@@ -21,8 +21,15 @@ pipeline {
             steps {
                 checkout([
                     $class: 'GitSCM', 
-                    branch
+                    branches: [[name: '*/main']], 
+                    userRemoteConfigs: [[url: 'https://github.com/Shenbagom/Helloworld.git']]
+                ])
+            }
         }
+
+     
+       
+
 
     }   
 }
