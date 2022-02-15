@@ -2,7 +2,7 @@ pipeline {
 
     agent {
         node {
-            label 'master'
+            label 'branch1'
         }
     }
 
@@ -17,9 +17,7 @@ pipeline {
         
         stage('Cleanup Workspace') {
             steps {
-                cleanWs()
-                sh """
-                echo "Cleaned Up Workspace For Project"
+               echo "Cleaned Up Workspace For Project"
                 """
             }
         }
@@ -28,7 +26,7 @@ pipeline {
             steps {
                 checkout([
                     $class: 'GitSCM', 
-                    branches: [[name: '*/main']], 
+                    branches: [[name: '*/branch1']], 
                     userRemoteConfigs: [[url: 'https://github.com/Shenbagom/Helloworld.git']]
                 ])
             }
@@ -52,7 +50,7 @@ pipeline {
 
         stage('Build Deploy Code') {
             when {
-                branch 'develop'
+                branch 'branch1'
             }
             steps {
                 sh """
