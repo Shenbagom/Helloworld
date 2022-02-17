@@ -15,19 +15,12 @@ pipeline {
 
     stages {
         
+        
       
+        def scmVars = checkout scm
+        def branchName = scmVars.GIT_BRANCH
 
-        stage('Code Checkout') {
-            steps {
-                checkout([
-                    $class: 'GitSCM', 
-                    branches: [[name: '*/main']], 
-                    userRemoteConfigs: [[url: 'https://github.com/Shenbagom/Helloworld.git']]
-                ])
-            }
-        }
-
-     
+         echo 'Pulling... ' + branchName
        
 
 
