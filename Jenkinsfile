@@ -13,16 +13,11 @@ pipeline {
             )
     }
 
-    stages {
+   stage('Analysis') {
+    node {
+        echo 'Pulling...' + env.BRANCH_NAME
+        checkout scm
         
-        
-      
-        def scmVars = checkout scm
-        def branchName = scmVars.GIT_BRANCH
-
-         echo 'Pulling... ' + branchName
-       
-
-
-    }   
+    }
+}
 }
