@@ -13,5 +13,21 @@ pipeline {
             )
     }
 
-    
+    stages {
+        
+      
+
+        stage('Brachname') {
+            steps {
+                
+                echo 'Pulling...' + env.BRANCH_NAME
+                checkout scm
+            }
+        }
+
+     
+       
+
+
+    }   
 }
