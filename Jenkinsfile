@@ -13,11 +13,21 @@ pipeline {
             )
     }
 
-   stage('Analysis') {
-    node {
-        echo 'Pulling...' + env.BRANCH_NAME
-        checkout scm
+    stages {
         
-    }
-}
+      
+
+        stage('Analysis') {
+            steps {
+                
+                echo 'Pulling...' + env.BRANCH_NAME
+                checkout scm
+            }
+        }
+
+     
+       
+
+
+    }   
 }
