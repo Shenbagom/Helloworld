@@ -17,15 +17,7 @@ pipeline {
         
       
 
-        stage('Code Checkout') {
-            steps {
-                checkout([
-                    $class: 'GitSCM', 
-                    branches: [[name: '*/main']], 
-                    userRemoteConfigs: [[url: 'https://github.com/Shenbagom/Helloworld.git']]
-                ])
-            }
-        }
+        
 
         stage(' Unit Testing') {
             steps {
