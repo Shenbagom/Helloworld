@@ -22,6 +22,7 @@ pipeline {
                 
                 echo 'Pulling...' + env.BRANCH_NAME
                 checkout scm
+                echo 'Pull Request..'+ env.CHANGE_ID
             }
         }
 
