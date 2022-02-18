@@ -15,7 +15,11 @@ pipeline {
 
     stages {
         
-      
+      stage("Env Variables"){
+            steps{
+                bat "set"                                                     
+            }
+      }
 
         stage('Analysis') {
             steps {
