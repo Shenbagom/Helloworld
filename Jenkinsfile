@@ -23,8 +23,10 @@ pipeline {
                 echo 'Pulling...' + env.BRANCH_NAME
                 checkout scm
                 echo 'Pull Request..'+ env.CHANGE_ID
-                 if (env.CHANGE_ID) {
+                if( env.CHANGE_ID) 
+                {
                     pullRequest.addLabel('Build Failed')
+                }
             }
         }
 
