@@ -4,6 +4,16 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Hello World'
+                
+                
+                for (reviewComment in pullRequest.reviewComments) {
+                    echo "File: ${reviewComment.path}, Position: ${reviewComment.position}, Author: ${reviewComment.user}, Comment: ${reviewComment.body}"
+                   }
+                
+                
+                
+                
+                
             }
         }
     }
