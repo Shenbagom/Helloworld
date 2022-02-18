@@ -15,11 +15,7 @@ pipeline {
 
     stages {
         
-      stage("Env Variables"){
-            steps{
-                bat "set"                                                     
-            }
-      }
+      
 
         stage('Analysis') {
             steps {
@@ -29,20 +25,7 @@ pipeline {
                 echo 'Pull Request..'+ env.CHANGE_ID
                  if (env.CHANGE_ID) {
                     pullRequest.addLabel('Build Failed')
-               
             }
-            
-            
-          
-            
-            
-            
-            
-            
-            
-            
-            
-            
         }
 
      
