@@ -3,15 +3,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                pullRequest.review('REQUEST_CHANGES', 'Change is the essential process of all existence.')
+
                 echo 'Hello World'
                 
                 
-                for (reviewComment in pullRequest.reviewComments) {
+               /* for (reviewComment in pullRequest.reviewComments) {
                     echo "File: ${reviewComment.path}, Position: ${reviewComment.position}, Author: ${reviewComment.user}, Comment: ${reviewComment.body}"
                    }
                 
                 
-                
+                */
                 
                 
             }
