@@ -1,38 +1,20 @@
 pipeline {
-
-    agent {
-        node {
-            label 'master'
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Hello World'
+            }
         }
     }
-
-    options {
-        buildDiscarder logRotator( 
-                    daysToKeepStr: '16', 
-                    numToKeepStr: '10'
-            )
-    }
-
-    stages {
-        
-      
-
-        stage('Analysis') {
-            steps {
-                
-                echo 'Pulling...' + env.BRANCH_NAME
-                checkout scm
-                echo 'Pull Request..'+ env.CHANGE_ID
-                if( env.CHANGE_ID) 
-                {
+    post {
+        failure {
+            script {
+                // CHANGE_ID is set only for pull requests, so it is safe to access the pullRequest global variable
+                if (env.CHANGE_ID) {
                     pullRequest.addLabel('Build Failed')
                 }
             }
         }
-
-     
-       
-
-
-    }   
+    }
 }
