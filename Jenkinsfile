@@ -13,7 +13,11 @@ pipeline {
                 // CHANGE_ID is set only for pull requests, so it is safe to access the pullRequest global variable
                 if (env.CHANGE_ID) {
                     pullRequest.addLabel('Build Failed')
+                    echo 'Build Failed'
+                    
                 }
+                 echo 'Build out of IF '
+
             }
         }
     }
