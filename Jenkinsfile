@@ -2,7 +2,7 @@ pipeline {
 
     agent {
         node {
-            label 'branch1'
+            label 'master'
         }
     }
 
